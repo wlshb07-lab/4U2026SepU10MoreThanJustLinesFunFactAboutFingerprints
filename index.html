@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎨🐣 雜誌9月號 U10 More Than Just Lines: Fun Facts About Fingerprints</title>
+<style>
+:root{
+  --mBlue:#E2F1FF; --mPurple:#F3E8FF; --mPink:#FCE7F3; --mYellow:#FFFBEB;
+  --mGreen:#ECFDF5; --coffee:#4A3E3D; --coffeeLt:#6B5A59; --bg:#FFFDF9;
+  --ok:#3F9D6B; --no:#C2557A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--coffee);
+ font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+ line-height:1.75;font-size:16px}
+#fw{position:fixed;inset:0;pointer-events:none;z-index:50}
+header{position:sticky;top:0;z-index:40;background:var(--mBlue);
+ border-bottom:2px solid #cfe4f7;display:flex;align-items:center;
+ justify-content:space-between;gap:10px;padding:8px 14px}
+header h1{font-size:1.0rem;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{cursor:pointer;border:2px solid #d9c9e8;background:var(--mPurple);color:var(--coffee);
+ border-radius:14px;padding:7px 14px;font-size:.95rem;font-family:inherit;transition:.18s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #9b7bc4;outline-offset:2px}
+#menu{position:absolute;right:10px;top:52px;z-index:41;background:#fff;border:2px solid #e4d6f2;
+ border-radius:18px;padding:10px;box-shadow:0 10px 28px rgba(74,62,61,.18);display:none;min-width:250px}
+#menu.open{display:block}
+#menu .btn{display:block;width:100%;text-align:left;margin:6px 0}
+main{max-width:960px;margin:0 auto;padding:16px 14px 80px}
+section{display:none}
+section.active{display:block}
+h2{font-size:1.25rem;border-left:8px solid #d9c9e8;padding-left:10px;margin:26px 0 12px}
+h3{font-size:1.05rem;margin:20px 0 8px;color:#5c4a63}
+.card{background:#fff;border:2px solid #f0e6f7;border-radius:18px;padding:14px;margin:12px 0}
+.q{background:var(--mYellow);border:2px solid #f3e6c5;border-radius:16px;padding:13px;margin:14px 0}
+.q p.stem{font-weight:700;margin:.2em 0 .6em}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid #e9dcf5;
+ border-radius:12px;padding:8px 12px;margin:5px 0;cursor:pointer;font-family:inherit;font-size:.97rem;transition:.15s}
+.opt:hover{transform:translateY(-2px);background:var(--mPurple)}
+.opt.right{background:var(--mGreen);border-color:#9ed9b8}
+.opt.wrong{background:var(--mPink);border-color:#e39ab9}
+.sol{display:none;margin-top:10px;background:var(--mGreen);border:2px dashed #a9dcc1;
+ border-radius:14px;padding:12px;animation:open .45s ease}
+.sol.show{display:block}
+@keyframes open{from{opacity:0;transform:rotateX(-70deg);transform-origin:top}to{opacity:1;transform:rotateX(0)}}
+.sol b{color:#2f7a53}
+.blank{display:inline-block;min-width:110px;border:none;border-bottom:2px solid #8fbfe8;
+ background:var(--mBlue);border-radius:6px 6px 0 0;padding:2px 6px;font-family:inherit;font-size:.95rem;color:var(--coffee)}
+.blank.right{background:var(--mGreen);border-bottom-color:#4aa578}
+.blank.wrong{background:var(--mPink);border-bottom-color:#d4779f}
+select.dd{background:var(--mPurple);border:2px solid #d9c9e8;border-radius:10px;padding:3px 6px;font-family:inherit;font-size:.95rem;color:var(--coffee)}
+.num{color:#8a6fae;font-weight:700;font-size:.85rem;vertical-align:super}
+mark{background:#FFF3B0;padding:0 2px;border-radius:4px}
+.kw{color:#7a4fa8;font-weight:700}
+.spk{cursor:pointer;border:none;background:transparent;font-size:1rem;padding:0 3px}
+#score{display:none;position:sticky;top:50px;z-index:30;background:var(--mGreen);
+ border:2px solid #a9dcc1;border-radius:14px;padding:8px 12px;margin:8px 0;font-weight:700}
+#score.show{display:block}
+.pop{display:inline-block;animation:pop .5s}
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.6)}100%{transform:scale(1)}}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--coffee);
+ color:#fff;border-radius:16px;padding:10px 18px;z-index:60;display:none;max-width:90%}
+.tabsel{background:var(--mPink);border-color:#f0b9d3}
+.wbwrap{position:sticky;top:52px;z-index:20;background:var(--mYellow);border:2px solid #f3e6c5;border-radius:16px;margin:10px 0}
+.wbhead{cursor:pointer;padding:8px 12px;font-weight:700;display:flex;justify-content:space-between}
+.wbbody{max-height:170px;overflow-y:auto;padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px}
+.wbbody.hide{display:none}
+.chip{cursor:pointer;background:#fff;border:2px solid #e9dcf5;border-radius:12px;padding:4px 10px;font-size:.93rem;transition:.15s}
+.chip:hover{transform:translateY(-2px)}
+.chip.sel{background:var(--mPink);border-color:#f0b9d3}
+.chip.used{opacity:.35;pointer-events:none}
+.slot{display:inline-block;min-width:130px;border-bottom:2px solid #8fbfe8;background:var(--mBlue);
+ border-radius:6px 6px 0 0;padding:2px 8px;cursor:pointer;min-height:1.7em}
+.slot.right{background:var(--mGreen);border-bottom-color:#4aa578}
+.slot.wrong{background:var(--mPink);border-bottom-color:#d4779f}
+.zh{color:#2f7a53;font-size:.9rem}
+.seq{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.seqitem{cursor:pointer;background:#fff;border:2px solid #e9dcf5;border-radius:12px;padding:8px 12px;transition:.15s}
+.seqitem:hover{transform:translateY(-2px)}
+.seqitem.picked{background:var(--mPurple);border-color:#c9aee4}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0}
+.sq{border:2px solid #e9dcf5;border-radius:12px;padding:8px 4px;text-align:center;font-size:.8rem;background:#fff}
+.sq.here{background:var(--mPink);border-color:#f0b9d3;font-weight:700}
+.sq.done{background:var(--mGreen);border-color:#9ed9b8}
+textarea{width:100%;font-family:inherit;font-size:.97rem;border:2px solid #cfe4f7;border-radius:12px;padding:8px;background:var(--mBlue);color:var(--coffee)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:8px 0}
+th,td{border:1px solid #e4d6f2;padding:6px 8px;text-align:left}
+th{background:var(--mPurple)}
+@media(max-width:600px){body{font-size:15px}main{padding:12px 10px 70px}
+ h2{font-size:1.1rem}.board{grid-template-columns:repeat(4,1fr)}.wbbody{max-height:130px}
+ header h1{font-size:.85rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fw"></canvas>
+<header>
+  <h1>🎨🐣 雜誌9月號 U10　More Than Just Lines: Fun Facts About Fingerprints</h1>
+  <button class="btn" id="menuBtn" onclick="toggleMenu()">☰ 選單</button>
+</header>
+<div id="menu">
+  <button class="btn" onclick="go('practice')">💡 字彙對對碰</button>
+  <button class="btn" onclick="go('cloze')">📝 克漏字與填空</button>
+  <button class="btn" onclick="go('review')">📚 Reading 架構總複習</button>
+  <button class="btn" onclick="go('board')">🎲 摘要大富翁</button>
+  <button class="btn" onclick="go('gias')">✍️ GIAS 綜合練習與 RCQ</button>
+  <button class="btn" onclick="go('life')">🐨 生活應用 Fingerprint Lab</button>
+  <button class="btn" onclick="go('focus')">📐 Language in Focus</button>
+  <button class="btn" onclick="go('analysis')">🧭 文體與組織分析</button>
+  <hr>
+  <button class="btn" onclick="toggleScore()">🏆 顯示／隱藏計分列</button>
+  <button class="btn" onclick="wipe()">🧹 清除紀錄，重新開始</button>
+</div>
+<main>
+<div id="score">🏆 Kahoot 積分：<span id="pts" class="pop">0</span> 分　|　🔥 連對：<span id="streak">0</span>　|　✅ 答對 <span id="nok">0</span> / 作答 <span id="ntot">0</span></div>
+
+<!-- ============ TAB 1 ============ -->
+<section id="practice" class="active">
+  <h2>💡 字彙對對碰</h2>
+  <div id="catbar" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+  <div class="wbwrap">
+    <div class="wbhead" onclick="document.getElementById('wbbody').classList.toggle('hide')">
+      <span>🗃 Word Bank（點選詞彙 → 再點空格填入；再點空格可退回）</span><span>▲▼</span>
+    </div>
+    <div class="wbbody" id="wbbody"></div>
+  </div>
+  <div id="qlist"></div>
+  <button class="btn" onclick="checkPractice()">✓ Check answers</button>
+</section>
+
+<!-- ============ TAB 2 ============ -->
+<section id="cloze">
+  <h2>📝 克漏字與填空</h2>
+  <p class="zh">每題 4 分，滿分 100 分，忽略大小寫。</p>
+  <div class="card" id="clozeText"></div>
+  <button class="btn" onclick="checkCloze()">✓ Check answers</button>
+  <button class="btn" onclick="toggleSol('clozeSol')">📖 參考解答：</button>
+  <div class="sol" id="clozeSol">
+    <h3>參考解答的句子（完整課文，答案以粗體標示）</h3>
+    <p><b>Take a close look at</b> your fingerprints（仔細看看你的指紋）. These <b>patterns</b>（圖樣）may look simple, but they are unique to you. Scientists believe fingerprints form inside the <b>(D) womb</b>. They are shaped by both <b>(C) genes</b> and what each baby experiences before birth. That's why no two people—not even identical <b>twins</b>（即使是同卵雙胞胎也一樣）—<b>share</b>（共同具備）the same fingerprints. <b>Yet</b>（然而；但是）, in very rare cases, some people are born without fingerprints. <button class="spk" onclick="readSlow('Take a close look at your fingerprints. These patterns may look simple, but they are unique to you. Scientists believe fingerprints form inside the womb. They are shaped by both genes and what each baby experiences before birth. That is why no two people, not even identical twins, share the same fingerprints. Yet, in very rare cases, some people are born without fingerprints.')">🔊</button></p>
+    <p>Fingerprints stay the same throughout your life. As you grow, they get bigger, but the patterns do not change. Even after small cuts or burns, the skin <b>heals</b>（皮膚癒合後）in a way that keeps the <b>(A) original</b> design. Because these patterns last a <b>lifetime</b>（會維持一輩子）, fingerprints are very useful for identification. The police have used them for over 100 years to solve crimes and <b>confirm</b> identities（警方超過一百年來都使用指紋來破案與確認身分）. <button class="spk" onclick="readSlow('Fingerprints stay the same throughout your life. As you grow, they get bigger, but the patterns do not change. Even after small cuts or burns, the skin heals in a way that keeps the original design. Because these patterns last a lifetime, fingerprints are very useful for identification. The police have used them for over 100 years to solve crimes and confirm identities.')">🔊</button></p>
+    <p>Fingerprints are not just for catching <b>(F) criminals</b>, though. They also improve our sense of touch. When we touch something, the ridges make tiny vibrations. These vibrations help our fingers sense differences. For example, silk and wool feel very different when we touch them. <button class="spk" onclick="readSlow('Fingerprints are not just for catching criminals, though. They also improve our sense of touch. When we touch something, the ridges make tiny vibrations. These vibrations help our fingers sense differences. For example, silk and wool feel very different when we touch them.')">🔊</button></p>
+    <p>Humans are not the only animals with fingerprints. Some primates, such as monkeys and apes, have them, too. This may not seem very surprising because primates are closely <b>related</b> to humans（因為靈長類與人類的關係相當接近）. Their fingerprints help them hold onto branches and other surfaces as they move around. <button class="spk" onclick="readSlow('Humans are not the only animals with fingerprints. Some primates, such as monkeys and apes, have them, too. This may not seem very surprising because primates are closely related to humans. Their fingerprints help them hold onto branches and other surfaces as they move around.')">🔊</button></p>
+    <p>To many people's surprise, koalas have fingerprints <b>as well</b>（讓許多人驚訝的是，無尾熊也有指紋）. <b>Unlike</b>（與…不同；不像…）monkeys and apes, koalas are not primates. <b>Even so</b>（即便如此）, their fingerprint patterns are almost identical to ours! Koalas <b>developed</b>（長出；（使）生長）fingerprints for practical reasons. The ridges may <b>assist</b> them in <b>grasping</b> things（這些紋路可能幫助牠們抓握物體）and gripping tree branches as they climb. <b>What's more</b>（除此之外）, their fingerprints play a role in how they choose food. Koalas are famously <b>(B) picky</b> eaters. They <b>prefer</b> certain kinds of eucalyptus leaves（牠們偏愛某些尤加利葉）, especially young and fresh ones. Their <b>sensitive</b> fingers（牠們敏感的手指）help them inspect the <b>(E) texture</b> of leaves. <b>As a result</b>, they can choose the leaves they want more easily（因此能更容易挑選自己想吃的葉子）. <button class="spk" onclick="readSlow(&quot;To many people's surprise, koalas have fingerprints as well. Unlike monkeys and apes, koalas are not primates. Even so, their fingerprint patterns are almost identical to ours! Koalas developed fingerprints for practical reasons. The ridges may assist them in grasping things and gripping tree branches as they climb. What's more, their fingerprints play a role in how they choose food. Koalas are famously picky eaters. They prefer certain kinds of eucalyptus leaves, especially young and fresh ones. Their sensitive fingers help them inspect the texture of leaves. As a result, they can choose the leaves they want more easily.&quot;)">🔊</button></p>
+    <p>Fingerprints are small, but they have a big story to tell. They show who we are, how we feel things, and how some animals are like us. <button class="spk" onclick="readSlow('Fingerprints are small, but they have a big story to tell. They show who we are, how we feel things, and how some animals are like us.')">🔊</button></p>
+    <h3>25 格答案速查表</h3>
+    <table><tr><th>格</th><th>答案</th><th>格</th><th>答案</th><th>格</th><th>答案</th></tr>
+    <tr><td>1</td><td>Take a close look at</td><td>10</td><td>lifetime</td><td>19</td><td>grasping</td></tr>
+    <tr><td>2</td><td>patterns</td><td>11</td><td>confirm</td><td>20</td><td>What's more</td></tr>
+    <tr><td>3</td><td>(D) womb</td><td>12</td><td>(F) criminals</td><td>21</td><td>(B) picky</td></tr>
+    <tr><td>4</td><td>(C) genes</td><td>13</td><td>related</td><td>22</td><td>prefer</td></tr>
+    <tr><td>5</td><td>twins</td><td>14</td><td>as well</td><td>23</td><td>sensitive</td></tr>
+    <tr><td>6</td><td>share</td><td>15</td><td>Unlike</td><td>24</td><td>(E) texture</td></tr>
+    <tr><td>7</td><td>Yet</td><td>16</td><td>Even so</td><td>25</td><td>As a result</td></tr>
+    <tr><td>8</td><td>heals</td><td>17</td><td>developed</td><td></td><td></td></tr>
+    <tr><td>9</td><td>(A) original</td><td>18</td><td>assist</td><td></td><td></td></tr></table>
+  </div>
+</section>
+<!-- ============ TAB 3 ============ -->
+<section id="review">
+  <h2>📚 Reading 架構總複習</h2>
+
+  <h3>一、Reading</h3>
+  <div class="card">
+    <button class="btn" onclick="readSlow(document.getElementById('day22').innerText)">🔊 Sep. 22</button>
+    <button class="btn" onclick="readSlow(document.getElementById('day23').innerText)">🔊 Sep. 23</button>
+    <button class="btn" onclick="stopRead()">⏹ 停止</button>
+    <p style="font-weight:700">UNIT 10　Fun Facts　9/22–9/23　★★★<br>More Than Just Lines: Fun Facts About Fingerprints<br><span class="zh">指紋——藏在指尖上的獨特密碼</span></p>
+    <div id="day22">
+      <p><b>Sep. 22　¶1</b>　<mark>Take a close look at</mark> your fingerprints. These patterns <span class="kw">may look simple, but they are unique to you</span>. Scientists believe fingerprints form inside the <span class="kw">womb</span>. They are <span class="kw">shaped by both genes and</span> what each baby experiences before birth. <mark>That's why</mark> no two people—<span class="kw">not even identical twins</span>—share the same fingerprints. <mark>Yet, in very rare cases</mark>, some people are born <span class="kw">without</span> fingerprints.</p>
+      <p><b>¶2</b>　Fingerprints <span class="kw">stay the same throughout your life</span>. As you grow, they get bigger, <mark>but</mark> the patterns do not change. <mark>Even after</mark> small cuts or burns, the skin <span class="kw">heals</span> in a way that keeps the <span class="kw">original</span> design. <mark>Because</mark> these patterns <span class="kw">last a lifetime</span>, fingerprints are very useful for <span class="kw">identification</span>. The police have used them <span class="kw">for over 100 years</span> to solve crimes and <span class="kw">confirm</span> identities.</p>
+      <p><b>¶3</b>　Fingerprints are <mark>not just for catching criminals, though</mark>. They <mark>also</mark> improve our <span class="kw">sense of touch</span>. When we touch something, the <span class="kw">ridges</span> make tiny <span class="kw">vibrations</span>. <mark>These vibrations</mark> help our fingers sense differences. <mark>For example</mark>, silk and wool feel very different when we touch them.</p>
+    </div>
+    <div id="day23">
+      <p><b>Sep. 23　¶1</b>　Humans are <span class="kw">not the only animals with fingerprints</span>. Some primates, <mark>such as</mark> monkeys and apes, have them, too. <mark>This may not seem very surprising</mark> because primates are <span class="kw">closely related to</span> humans. Their fingerprints help them <span class="kw">hold onto branches</span> and other surfaces as they move around.</p>
+      <p><b>¶2</b>　<mark>To many people's surprise</mark>, koalas have fingerprints <span class="kw">as well</span>. <mark>Unlike</mark> monkeys and apes, koalas are not primates. <mark>Even so</mark>, their fingerprint patterns are <span class="kw">almost identical to ours</span>! Koalas developed fingerprints <span class="kw">for practical reasons</span>. The ridges may <span class="kw">assist them in grasping</span> things and <span class="kw">gripping</span> tree branches as they climb. <mark>What's more</mark>, their fingerprints <span class="kw">play a role in</span> how they choose food. Koalas are <span class="kw">famously picky eaters</span>. They <span class="kw">prefer</span> certain kinds of eucalyptus leaves, especially young and fresh ones. Their <span class="kw">sensitive</span> fingers help them <span class="kw">inspect the texture</span> of leaves. <mark>As a result</mark>, they can choose the leaves they want more easily.</p>
+      <p><b>結語</b>　Fingerprints are <span class="kw">small, but they have a big story to tell</span>. They show <mark>who we are, how we feel things, and how some animals are like us</mark>.</p>
+    </div>
+  </div>
+
+  <h3>二、架構偵察</h3>
+  <div id="genreQs"></div>
+
+  <div class="q">
+    <p class="stem">📐 Sep. 22 結構排序：請依序點選，排出這一天的組織順序。</p>
+    <div class="seq" id="seqA"></div>
+    <button class="btn" onclick="checkSeq('A')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('A')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeqA')">📖 參考解答：</button>
+    <div class="sol" id="solSeqA"><b>正解順序：</b>①→②→③。Sep. 22 走「事實一：獨特性（胎兒期形成、無人相同）→ 事實二：恆久性（一生不變、故可辨識身分）→ 事實三：觸覺功能（不只抓罪犯，還能分辨材質）」。<br><b>解題程序：</b>抓訊號詞 That's why（獨特性的因果收束）／Because these patterns last a lifetime（恆久性的因果收束）／not just for catching criminals, though（轉出新角度）。<br><b>常見錯誤：</b>把觸覺段排在前面——though 與 also 都標示它是「再補一項、而且是轉折」，不可能是第一項。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🕒 Sep. 23 結構排序：請依課文出現順序點選。</p>
+    <div class="seq" id="seqB"></div>
+    <button class="btn" onclick="checkSeq('B')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('B')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeqB')">📖 參考解答：</button>
+    <div class="sol" id="solSeqB"><b>正解順序：</b>預料之中的例子（靈長類，因與人類近緣）→ 出人意料的例子（無尾熊並非靈長類卻幾乎相同）→ 無尾熊指紋的兩項功能（攀爬抓握、挑選食物）→ 三項並列總結。<br><b>解題程序：</b>This may not seem very surprising 與 To many people's surprise 是一組對照，作者先降低再拉高驚訝值；What's more 標示第二項功能必在第一項之後。<br><b>常見錯誤：</b>把無尾熊段排第一——To many people's surprise 的「意外」必須有前面的「不意外」當對照才成立。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🧩 摘要重組（Sep. 22）：句子已打散，請依說明文結構依序點選——第 1 句＝主題句，第 2、3 句＝兩個支持論點，第 4 句＝結論句。</p>
+    <div class="seq" id="seqR22"></div>
+    <button class="btn" onclick="checkSeq('R22')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('R22')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeqR22')">📖 參考解答：</button>
+    <div class="sol" id="solSeqR22"><b>摘要 Summary：</b>Fingerprints may look simple, but they are unique to you because they are shaped by both genes and what each baby experiences before birth. That's why no two people—not even identical twins—share the same fingerprints, and because these patterns last a lifetime, fingerprints are very useful for identification. Fingerprints are not just for catching criminals, though; the ridges make tiny vibrations that help our fingers sense differences. Fingerprints show who we are and improve our sense of touch. <button class="spk" onclick="readSlow(&quot;Fingerprints may look simple, but they are unique to you because they are shaped by both genes and what each baby experiences before birth. That's why no two people, not even identical twins, share the same fingerprints, and because these patterns last a lifetime, fingerprints are very useful for identification. Fingerprints are not just for catching criminals, though. The ridges make tiny vibrations that help our fingers sense differences. Fingerprints show who we are and improve our sense of touch.&quot;)">🔊</button><br>（第 1 句＝主題句；第 2 句＝支持論點一；第 3 句＝支持論點二；第 4 句＝結論句）<br><b>判斷程序：</b>① 含「表象 vs. 事實」對比 may look simple, but they are unique，且第一次出現全稱 Fingerprints 者為主題句。② 以 That's why 開頭者必然緊接主題句，因果訊號需要前提。③ 帶 not just…though 的觸覺段為第二個支持論點，though 標示它是「再補一項並轉折」。④ 不含訊號詞、把身分與觸覺兩條線合併的短句為結論句。<br><b>常見錯誤：</b>把 That's why 這句排到第一句，會讓因果失去前提。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🧩 摘要重組（Sep. 23）：句子已打散，請依說明文結構依序點選——第 1 句＝主題句，第 2、3 句＝兩個支持論點，第 4 句＝結論句。</p>
+    <div class="seq" id="seqR23"></div>
+    <button class="btn" onclick="checkSeq('R23')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('R23')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeqR23')">📖 參考解答：</button>
+    <div class="sol" id="solSeqR23"><b>摘要 Summary：</b>Humans are not the only animals with fingerprints. Some primates, such as monkeys and apes, have them, too, and this may not seem very surprising because primates are closely related to humans. To many people's surprise, koalas have fingerprints as well; the ridges may assist them in grasping things, and their sensitive fingers help them inspect the texture of leaves. Fingerprints are small, but they have a big story to tell about how some animals are like us. <button class="spk" onclick="readSlow(&quot;Humans are not the only animals with fingerprints. Some primates, such as monkeys and apes, have them, too, and this may not seem very surprising because primates are closely related to humans. To many people's surprise, koalas have fingerprints as well. The ridges may assist them in grasping things, and their sensitive fingers help them inspect the texture of leaves. Fingerprints are small, but they have a big story to tell about how some animals are like us.&quot;)">🔊</button><br>（第 1 句＝主題句；第 2 句＝支持論點一；第 3 句＝支持論點二；第 4 句＝結論句）<br><b>判斷程序：</b>① 提出全段主張「人類不是唯一有指紋的動物」且句中無任何回指詞者為主題句。② 第一個支持論點給「預料之中」的靈長類，訊號是 this may not seem very surprising。③ 第二個支持論點給「出人意料」的無尾熊，訊號是 To many people's surprise——「意外」必須有前面的「不意外」當對照。④ 以 small, but they have a big story to tell 的反差句收尾。<br><b>常見錯誤：</b>把無尾熊句排在靈長類句之前，會讓 surprise 的落差無從產生。</div>
+  </div>
+
+  <h3>三、四層次思考（English A2–B1／中文解說）</h3>
+  <div id="fourQs"></div>
+
+  <h3>四、學測題型</h3>
+  <div id="gsatQs"></div>
+
+  <div class="q">
+    <p class="stem">🈺 翻譯 1：即使有小割傷或燙傷，皮膚癒合後仍會保留原本的紋路。</p>
+    <textarea id="tr1" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solTr1')">📖 參考解答：</button>
+    <div class="sol" id="solTr1">Even after small cuts or burns, the skin heals in a way that keeps the original design. <button class="spk" onclick="readWord('Even after small cuts or burns, the skin heals in a way that keeps the original design.')">🔊</button><br><b>解說：</b>Even after 為介系詞片語，後接名詞（片語）不可接子句；in a way that… 用關係子句修飾 way，表「以…的方式」；heal 在此為不及物動詞，主詞是 the skin 而非人。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🈺 翻譯 2：牠們敏感的手指能幫助牠們檢查葉子的觸感。</p>
+    <textarea id="tr2" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solTr2')">📖 參考解答：</button>
+    <div class="sol" id="solTr2">Their sensitive fingers help them inspect the texture of leaves. <button class="spk" onclick="readWord('Their sensitive fingers help them inspect the texture of leaves.')">🔊</button><br><b>解說：</b>help + 受詞 + 原形動詞（亦可寫 help them to inspect），這與 assist them in grasping 必須加 in＋動名詞形成對照，是本課最容易混用的搭配。</div>
+  </div>
+</section>
+
+<!-- ============ TAB 4 ============ -->
+<section id="board">
+  <h2>🎲 摘要大富翁</h2>
+  <p>擲骰子前進，停在哪一格就答哪一題。答對得分並保留該格，答錯留在原地重整旗鼓。走完 12 格即完成一圈。</p>
+  <div class="board" id="boardGrid"></div>
+  <button class="btn" onclick="roll()">🎲 擲骰子</button>
+  <button class="btn" onclick="resetBoard()">↺ 重新開始</button>
+  <p id="diceMsg" style="font-weight:700"></p>
+  <div id="boardQ"></div>
+</section>
+
+<!-- ============ TAB 5 ============ -->
+<section id="gias">
+  <h2>✍️ GIAS 綜合練習與 RCQ</h2>
+
+  <h3>GIAS｜請將下列字詞重組成一個完整句子，並於句尾加上適當的標點符號（大小寫不變化）</h3>
+  <div class="q">
+    <p class="stem">1. I'm on a diet ／ is perfect for me ／ without ／ because ／ A sandwich ／ cheese</p>
+    <textarea id="g1" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solG1')">📖 參考解答：</button>
+    <div class="sol" id="solG1"><b>✅ 答案：</b>A sandwich without cheese is perfect for me because I'm on a diet. <button class="spk" onclick="readWord(&quot;A sandwich without cheese is perfect for me because I'm on a diet.&quot;)">🔊</button><br><b>🔍 解析：</b>此題考 without + N 修飾前方名詞的用法。重組程序：先找主詞 A sandwich，再把 without cheese 緊接其後當形容詞片語修飾它，接著補上主要動詞片語 is perfect for me，最後用 because 引導副詞子句 I'm on a diet。常見錯誤：把 without cheese 放到句尾，會變成修飾動詞而非三明治。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">2. any noise ／ making ／ The cat ／ without ／ moved across the floor</p>
+    <textarea id="g2" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solG2')">📖 參考解答：</button>
+    <div class="sol" id="solG2"><b>✅ 答案：</b>The cat moved across the floor without making any noise. <button class="spk" onclick="readWord('The cat moved across the floor without making any noise.')">🔊</button><br><b>🔍 解析：</b>此題考 without + V-ing 修飾前方動詞的用法。重組程序：主詞 The cat ＋ 動詞片語 moved across the floor，再用 without making any noise 說明「以沒有發出聲音的方式移動」。without 為介系詞，後方動詞必須變成動名詞 making，不可用原形或不定詞。</div>
+  </div>
+
+  <h3>RCQ｜閱讀理解</h3>
+  <div id="rcqQs"></div>
+</section>
+<!-- ============ TAB 6 ============ -->
+<section id="life">
+  <h2>🐨 生活應用 Fingerprint Lab</h2>
+  <div class="card" style="text-align:center">
+    <svg viewBox="0 0 340 140" style="width:100%;max-width:330px;height:auto" role="img" aria-label="A fingertip with ridges beside a koala holding a eucalyptus branch">
+      <rect x="0" y="0" width="340" height="140" rx="14" fill="#FFFBEB"/>
+      <g transform="translate(24,16)">
+        <path d="M14 96 Q14 22 56 22 Q98 22 98 96 Z" fill="#E2F1FF" stroke="#8fbfe8" stroke-width="3"/>
+        <g fill="none" stroke="#7a4fa8" stroke-width="2.5" stroke-linecap="round">
+          <path d="M34 92 Q34 46 56 46 Q78 46 78 92"/>
+          <path d="M42 92 Q42 56 56 56 Q70 56 70 92"/>
+          <path d="M50 92 Q50 66 56 66 Q62 66 62 92"/>
+          <path d="M26 92 Q26 36 56 36 Q86 36 86 92"/>
+        </g>
+      </g>
+      <g transform="translate(180,18)">
+        <ellipse cx="60" cy="58" rx="40" ry="42" fill="#6B5A59"/>
+        <circle cx="22" cy="34" r="17" fill="#F3E8FF" stroke="#6B5A59" stroke-width="3"/>
+        <circle cx="98" cy="34" r="17" fill="#F3E8FF" stroke="#6B5A59" stroke-width="3"/>
+        <circle cx="46" cy="52" r="6" fill="#FFFDF9"/><circle cx="74" cy="52" r="6" fill="#FFFDF9"/>
+        <circle cx="46" cy="52" r="3" fill="#4A3E3D"/><circle cx="74" cy="52" r="3" fill="#4A3E3D"/>
+        <ellipse cx="60" cy="70" rx="11" ry="9" fill="#4A3E3D"/>
+        <path d="M8 96 Q0 82 12 74" stroke="#3F9D6B" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="4" cy="70" rx="10" ry="5" fill="#ECFDF5" stroke="#3F9D6B" stroke-width="2" transform="rotate(-30 4 70)"/>
+        <ellipse cx="16" cy="62" rx="10" ry="5" fill="#ECFDF5" stroke="#3F9D6B" stroke-width="2" transform="rotate(20 16 62)"/>
+      </g>
+    </svg>
+  </div>
+
+  <h3>一、Vocabulary（Sep. 22）</h3>
+  <div class="card" id="voc22"></div>
+
+  <h3>二、字彙小補帖（Sep. 22）</h3>
+  <div class="card" id="pk22"></div>
+
+  <h3>三、Vocabulary（Sep. 23）</h3>
+  <div class="card" id="voc23"></div>
+
+  <h3>四、字彙小補帖（Sep. 23）</h3>
+  <div class="card" id="pk23"></div>
+
+  <h3>五、Pocket Phrase</h3>
+  <div class="card" id="pocketP"></div>
+
+  <h3>六、生活情境判斷</h3>
+  <div id="lifeQs"></div>
+
+  <h3>七、延伸寫作</h3>
+  <div class="q">
+    <p class="stem">✍️ Your friend says animal fingerprints are useless. Write 3–4 sentences to disagree. You must use <b>To many people's surprise</b> and <b>As a result</b>.</p>
+    <textarea id="lwrite" rows="4" placeholder="Fingerprints are not only for humans. To many people's surprise, ..."></textarea>
+    <button class="btn" onclick="toggleSol('solLW')">📖 參考解答：</button>
+    <div class="sol" id="solLW"><b>參考寫法：</b>Humans are not the only animals with fingerprints. To many people's surprise, koalas have fingerprints as well, even though they are not primates. The ridges may assist them in grasping things, and their sensitive fingers help them inspect the texture of leaves. As a result, these picky eaters can choose the young and fresh eucalyptus leaves they want more easily. <button class="spk" onclick="readWord(&quot;Humans are not the only animals with fingerprints. To many people's surprise, koalas have fingerprints as well, even though they are not primates. The ridges may assist them in grasping things, and their sensitive fingers help them inspect the texture of leaves. As a result, these picky eaters can choose the young and fresh eucalyptus leaves they want more easily.&quot;)">🔊</button><br><b>評分重點：</b>(1) 先給主張再給證據，最後用 As a result 收出結果，與課文 Sep. 23 的組織同構；(2) To one's + 情緒性名詞 置句首後須加逗號；(3) assist 後接 them in V-ing，help 後接原形動詞，兩者不可混用。</div>
+  </div>
+</section>
+
+<!-- ============ TAB 7 ============ -->
+<section id="focus">
+  <h2>📐 Language in Focus</h2>
+
+  <h3>一、Sep. 22｜without + N／V-ing</h3>
+  <div class="card">
+    <p>without 為介系詞，意為「沒有；無；不」，用來表示否定。</p>
+    <p><b>1. without + N／V-ing 修飾前方的動詞。</b></p>
+    <p>• Yet, in very rare cases, some people are born without fingerprints.（課文第 9~10 行） <button class="spk" onclick="readWord('Yet, in very rare cases, some people are born without fingerprints.')">🔊</button></p>
+    <p>• Sophie joined the game without knowing all the rules. <button class="spk" onclick="readWord('Sophie joined the game without knowing all the rules.')">🔊</button><br><span class="zh">蘇菲在還不知道所有規則的情況下加入了比賽。</span></p>
+    <p><b>2. without + N 修飾前方的名詞。</b></p>
+    <p>• I prefer coffee without any sugar or ice. <button class="spk" onclick="readWord('I prefer coffee without any sugar or ice.')">🔊</button><br><span class="zh">我比較喜歡無糖去冰的咖啡。</span></p>
+  </div>
+
+  <h3>二、Sep. 23｜to one's + 情緒性名詞, S + V …</h3>
+  <div class="card">
+    <p>本句型表示「令某人感到…的是…」，須特別注意其中的名詞均帶有「情緒性」。常見的情緒性名詞有 surprise、disbelief（不可置信；懷疑）、delight（愉快）、disappointment（失望）、regret、sorrow、relief、excitement、satisfaction（滿足）、embarrassment（難堪）、anger、horror 等。</p>
+    <p>• To many people's surprise, koalas have fingerprints as well.（課文第 7~8 行） <button class="spk" onclick="readWord(&quot;To many people's surprise, koalas have fingerprints as well.&quot;)">🔊</button></p>
+    <p>• To everyone's anger, the city government announced that some public parks would close. <button class="spk" onclick="readWord(&quot;To everyone's anger, the city government announced that some public parks would close.&quot;)">🔊</button><br><span class="zh">令所有人感到憤怒的是，市政府宣布有些公園會關閉。</span></p>
+    <p>本句型亦可以用 much + to one's + N 或是 to one's + great + N 來加強語氣，表示「令某人感到非常…的是…」。</p>
+    <p>• Much to my relief, I was able to get a seat on the train for the long trip to Kaohsiung. <button class="spk" onclick="readWord('Much to my relief, I was able to get a seat on the train for the long trip to Kaohsiung.')">🔊</button><br>
+    → To my great relief, I was able to get a seat on the train for the long trip to Kaohsiung. <button class="spk" onclick="readWord('To my great relief, I was able to get a seat on the train for the long trip to Kaohsiung.')">🔊</button><br><span class="zh">讓我著實鬆了口氣的是，我能夠在去高雄的長途火車上有個座位。</span></p>
+  </div>
+
+  <h3>三、句型辨識練習</h3>
+  <div id="focusQs"></div>
+
+  <div class="q">
+    <p class="stem">✍️ 句型練習：請用 <b>To one's + 情緒性名詞</b> 造一句，描述你讀到無尾熊也有指紋時的反應。</p>
+    <textarea id="fw1" rows="2" placeholder="To my surprise, ..."></textarea>
+    <button class="btn" onclick="toggleSol('solFW1')">📖 參考解答：</button>
+    <div class="sol" id="solFW1"><b>參考寫法：</b>To my great surprise, koalas are not primates, but their fingerprint patterns are almost identical to ours. <button class="spk" onclick="readWord('To my great surprise, koalas are not primates, but their fingerprint patterns are almost identical to ours.')">🔊</button><br><b>評分重點：</b>(1) 情緒性名詞前須用所有格（my／many people's／everyone's）；(2) 置句首後必須加逗號再接完整主要子句；(3) 加強語氣時寫 Much to my surprise 或 To my great surprise，兩者擇一，不可疊用成 Much to my great surprise。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">✍️ 改寫練習：請把下面兩句合併成一句，使用 without + V-ing。<br>The koala climbed the tree. It did not drop the leaves.</p>
+    <textarea id="fw2" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solFW2')">📖 參考解答：</button>
+    <div class="sol" id="solFW2"><b>參考答案：</b>The koala climbed the tree without dropping the leaves. <button class="spk" onclick="readWord('The koala climbed the tree without dropping the leaves.')">🔊</button><br><b>解說：</b>合併程序：保留主要子句 The koala climbed the tree，把否定句 It did not drop… 轉成 without + V-ing。without 本身已含否定，不可再寫 without not dropping；且 without 為介系詞，後方必須是動名詞，不可用 to drop。</div>
+  </div>
+</section>
+<!-- ============ TAB 8 ============ -->
+<section id="analysis">
+  <h2>🧭 文體與組織分析</h2>
+
+  <h3>Passage 1（Sep. 22）：人類指紋的三個事實</h3>
+  <div class="card">
+    <p><b>文體：</b>說明文 (Expository)，開頭帶一句操作說明 (Procedural) 的祈使句。</p>
+    <p>• 全篇現在式（may look、are、form、stay、get bigger、heals、improve、make、help），陳述長期為真的科學事實，非一次性事件 → 非敘述文。</p>
+    <p>• 作者提供資訊與例證（For example, silk and wool feel very different），不爭辯立場、無須被辯護的主張 → 非議論文。</p>
+    <p>• 雖有 Take a close look at your fingerprints 引導觀察，但目的在導入說明而非經營感官畫面 → 非描述文。</p>
+    <p>• Take a close look at… 為祈使句，屬操作說明語態，功能是拉近讀者距離。</p>
+    <p><b>組織方式：</b>Listing of Facts（列點說明三項事實）＋ Cause-Effect（每項事實附成因或結果）＋ Exemplification（舉例說明）。</p>
+    <table>
+      <tr><th>段落</th><th>功能</th><th>關鍵語言標記</th></tr>
+      <tr><td>¶1</td><td>事實一：指紋的「獨特性」——胎兒期形成，由基因與出生前經歷共同塑造 → 因此無人相同；末句以例外收尾</td><td>Take a close look…（祈使句）/ may look simple, but they are unique（對比）/ Scientists believe / That's why（因果）/ not even identical twins（極端例證）/ Yet, in very rare cases（讓步例外）</td></tr>
+      <tr><td>¶2</td><td>事實二：指紋的「恆久性」——一生不變，受傷仍恢復原樣 → 因此可用於身分辨識</td><td>stay the same throughout your life / As you grow…, but the patterns do not change（對比）/ Even after small cuts or burns（讓步）/ Because these patterns last a lifetime（因果）/ for over 100 years</td></tr>
+      <tr><td>¶3</td><td>事實三：指紋的「觸覺功能」——不只用來抓罪犯，還能提升觸覺 → 說明機制並舉例</td><td>not just for catching criminals, though（轉折）/ They also improve…（加碼）/ When we touch something…（條件時間）/ These vibrations help…（因果鏈）/ For example</td></tr>
+    </table>
+    <p><b>結構要點：</b>三段各處理指紋的一項屬性——unique（獨特）→ unchanging（恆久）→ useful for touch（觸覺），前兩段服務「身分辨識」這條線，第三段用 not just…though 轉出「超出辦案」的新角度，為 Sep. 23 的跨物種延伸預留伏筆。</p>
+    <div class="q">
+      <p class="stem">🧩 摘要重組（Sep. 22）：句子已打散，請依說明文結構依序點選——第 1 句＝主題句，第 2、3 句＝兩個支持論點，第 4 句＝結論句。</p>
+      <div class="seq" id="seqS22"></div>
+      <button class="btn" onclick="checkSeq('S22')">✓ 檢查</button>
+      <button class="btn" onclick="resetSeq('S22')">↺ 重排</button>
+      <button class="btn" onclick="toggleSol('solSeqS22')">📖 參考解答：</button>
+      <div class="sol" id="solSeqS22"><b>摘要 Summary：</b>Fingerprints may look simple, but they are unique to you because they are shaped by both genes and what each baby experiences before birth. That's why no two people—not even identical twins—share the same fingerprints, and because these patterns last a lifetime, fingerprints are very useful for identification. Fingerprints are not just for catching criminals, though; the ridges make tiny vibrations that help our fingers sense differences. Fingerprints show who we are and improve our sense of touch. <button class="spk" onclick="readSlow(&quot;Fingerprints may look simple, but they are unique to you because they are shaped by both genes and what each baby experiences before birth. That's why no two people, not even identical twins, share the same fingerprints, and because these patterns last a lifetime, fingerprints are very useful for identification. Fingerprints are not just for catching criminals, though. The ridges make tiny vibrations that help our fingers sense differences. Fingerprints show who we are and improve our sense of touch.&quot;)">🔊</button><br>（第 1 句＝主題句；第 2、3 句＝兩個支持論點；第 4 句＝結論句）<br><b>判斷程序：</b>① 含「表象 vs. 事實」對比 may look simple, but they are unique 且第一次出現全稱 Fingerprints 者為主題句。② 以 That's why 開頭者必然緊接主題句，因為因果訊號需要前提。③ 帶轉折訊號 not just…though 的觸覺段為第二個支持論點，though 標示它是「再補一項」。④ 不含任何訊號詞、把兩條線（身分＋觸覺）合併的短句為結論句。<br><b>常見錯誤：</b>把 That's why 這句排到第一句，會讓因果失去前提。</div>
+    </div>
+  </div>
+
+  <h3>Passage 2（Sep. 23）：不只人類有指紋</h3>
+  <div class="card">
+    <p><b>文體：</b>說明文 (Expository)，以比較對照 (Compare and Contrast) 為主要手法。</p>
+    <p>• 全篇現在式陳述通則（are not the only animals、have、help、prefer、can choose），屬說明性質 → 非敘述文。</p>
+    <p>• 以 Unlike、Even so、What's more、As a result 串接資訊，目的是解釋現象而非說服讀者接受立場 → 非議論文。</p>
+    <p>• 無時間序列與情節，也無感官畫面經營 → 非敘述文、非描述文。</p>
+    <p>• This may not seem very surprising 與 To many people's surprise 是作者對讀者期待的操控，屬說明文常見的「預期管理」筆法。</p>
+    <p><b>組織方式：</b>Expected Case → Unexpected Case（由預料之中到出人意料）＋ Contrast（對比）＋ Cause-Effect（功能說明）。</p>
+    <table>
+      <tr><th>段落</th><th>功能</th><th>關鍵語言標記</th></tr>
+      <tr><td>¶1</td><td>預料之中的例子：靈長類也有指紋，因為牠們與人類近緣 → 說明功能（抓住樹枝與各種表面）</td><td>not the only animals / Some primates, such as monkeys and apes / This may not seem very surprising / closely related to humans / help them hold onto branches</td></tr>
+      <tr><td>¶2</td><td>出人意料的例子：無尾熊並非靈長類卻有幾乎相同的指紋 → 兩項功能：攀爬抓握、挑選食物；末句以結果收束</td><td>To many people's surprise / Unlike monkeys and apes（對比）/ Even so（讓步）/ almost identical to ours / for practical reasons / may assist them in grasping / What's more（加碼）/ play a role in / famously picky eaters / As a result</td></tr>
+      <tr><td>結語段</td><td>總結全課兩天：指紋雖小，卻說明了身分、感受與跨物種的相似性</td><td>small, but they have a big story to tell（對比）/ They show who we are, how we feel things, and how some animals are like us（三項並列）</td></tr>
+    </table>
+    <p><b>結構要點：</b>作者刻意先給「不意外」的靈長類，再給「意外」的無尾熊，靠 surprising／surprise 的落差製造閱讀動能；末段的三項並列正好回收 Sep. 22 的 who we are（獨特性與辨識）、how we feel things（觸覺）與 Sep. 23 的 how some animals are like us（跨物種），是兩天課文的共同收束。</p>
+    <div class="q">
+      <p class="stem">🧩 摘要重組（Sep. 23）：句子已打散，請依說明文結構依序點選——第 1 句＝主題句，第 2、3 句＝兩個支持論點，第 4 句＝結論句。</p>
+      <div class="seq" id="seqS23"></div>
+      <button class="btn" onclick="checkSeq('S23')">✓ 檢查</button>
+      <button class="btn" onclick="resetSeq('S23')">↺ 重排</button>
+      <button class="btn" onclick="toggleSol('solSeqS23')">📖 參考解答：</button>
+      <div class="sol" id="solSeqS23"><b>摘要 Summary：</b>Humans are not the only animals with fingerprints. Some primates, such as monkeys and apes, have them, too, and this may not seem very surprising because primates are closely related to humans. To many people's surprise, koalas have fingerprints as well; the ridges may assist them in grasping things, and their sensitive fingers help them inspect the texture of leaves. Fingerprints are small, but they have a big story to tell about how some animals are like us. <button class="spk" onclick="readSlow(&quot;Humans are not the only animals with fingerprints. Some primates, such as monkeys and apes, have them, too, and this may not seem very surprising because primates are closely related to humans. To many people's surprise, koalas have fingerprints as well. The ridges may assist them in grasping things, and their sensitive fingers help them inspect the texture of leaves. Fingerprints are small, but they have a big story to tell about how some animals are like us.&quot;)">🔊</button><br>（第 1 句＝主題句；第 2、3 句＝兩個支持論點；第 4 句＝結論句）<br><b>判斷程序：</b>① 提出全段主張「人類不是唯一有指紋的動物」者為主題句，句中無任何回指詞。② 第一個支持論點給「預料之中」的靈長類，訊號是 this may not seem very surprising。③ 第二個支持論點給「出人意料」的無尾熊，訊號是 To many people's surprise——「意外」必須有前面的「不意外」當對照。④ 以 small, but they have a big story to tell 的反差句收尾。<br><b>常見錯誤：</b>把無尾熊句排在靈長類句之前，會讓 surprise 的落差無從產生。</div>
+    </div>
+  </div>
+
+  <h3>兩段對照一覽</h3>
+  <table>
+    <tr><th>比較項目</th><th>Sep. 22</th><th>Sep. 23</th></tr>
+    <tr><td>文體</td><td>說明文（含祈使句的操作說明筆法）</td><td>說明文（以比較對照為主要手法）</td></tr>
+    <tr><td>論述焦點</td><td>人類指紋：獨特性、恆久性、觸覺功能</td><td>動物指紋：靈長類（預料之中）與無尾熊（出人意料）</td></tr>
+    <tr><td>組織方式</td><td>列點說明事實＋因果＋舉例</td><td>預期→意外＋對比＋功能說明</td></tr>
+    <tr><td>關鍵連接語</td><td>but、That's why、Even after、Because、not just…though、also、For example</td><td>such as、This may not seem surprising、To many people's surprise、Unlike、Even so、What's more、As a result</td></tr>
+    <tr><td>收尾方式</td><td>轉出觸覺功能，為跨物種段落鋪路</td><td>三項並列總結，回收兩天全部重點</td></tr>
+  </table>
+
+  <h3>語言結構與生活活用</h3>
+  <div class="card">
+    <p>• <b>對比句型的三種層次：</b>may look simple, but they are unique（表象 vs. 事實）／small, but they have a big story to tell（體積 vs. 意義）／Unlike monkeys and apes（類別對比）——同一課用三種方式操作「反差」。</p>
+    <p>• <b>讓步訊號的分工：</b>Yet, in very rare cases（承認例外）／Even after small cuts or burns（承認干擾仍不變）／Even so（承認前提仍成立後項）——三者都在保護主張不被反例推翻。</p>
+    <p>• <b>預期管理：</b>This may not seem very surprising 與 To many people's surprise 形成一組對照，作者先降低再拉高讀者的驚訝值，這是科普寫作維持注意力的常見手法。</p>
+    <p>• <b>assist sb in V-ing 與 help sb V：</b>assist 後須加 in＋動名詞（assist them in grasping），help 則可直接接原形或 to V（help them hold onto branches／help our fingers sense differences）——這是最容易混用的搭配。</p>
+    <p>• <b>代名詞回指 (anaphor)：</b>¶3 的 These vibrations 回指前一句的 tiny vibrations；Sep. 23 的 them、ours、they 分別指 fingerprints、our fingerprints、koalas——讀題時務必先釘住指涉對象。</p>
+    <p>• <b>play a role in</b> 後接名詞或動名詞（play a role in how they choose food），表「在…中扮演角色；起作用」，可直接遷移到寫作的因果論述。</p>
+    <p>• <b>shape 的一詞多義 (polysemy)：</b>are shaped by both genes and…（塑造，被動）／keeps the original design（設計、圖樣）——加上 both A and B 的並列結構，是本段最值得模仿的資訊密度。</p>
+    <p>• <b>生活活用：</b>unique to sb、last a lifetime、be closely related to、for practical reasons、play a role in、As a result 六組可直接遷移到任何「說明特性與功能」的口說與寫作題型。</p>
+  </div>
+</section>
+</main>
+<div id="toast"></div>
+<script>
+/* ---------- state ---------- */
+const S=JSON.parse(localStorage.getItem('u10state')||'{}');
+S.pts=S.pts||0;S.streak=S.streak||0;S.ok=S.ok||0;S.tot=S.tot||0;S.cat=S.cat||'noun';
+S.text=S.text||{};S.done=S.done||{};
+function save(){localStorage.setItem('u10state',JSON.stringify(S));}
+function wipe(){localStorage.removeItem('u10state');location.reload();}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';
+ clearTimeout(t._t);t._t=setTimeout(()=>t.style.display='none',3500);}
+function toggleMenu(){const m=document.getElementById('menu');m.classList.toggle('open');
+ document.getElementById('menuBtn').textContent=m.classList.contains('open')?'✕ 關閉':'☰ 選單';}
+document.addEventListener('click',e=>{const m=document.getElementById('menu');
+ if(m.classList.contains('open')&&!m.contains(e.target)&&e.target.id!=='menuBtn')toggleMenu();});
+function go(id){document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');window.scrollTo(0,0);toggleMenu();}
+function toggleScore(){document.getElementById('score').classList.toggle('show');}
+function toggleSol(id){document.getElementById(id).classList.toggle('show');}
+function award(n){S.pts+=n;S.ok++;S.tot++;S.streak++;S.pts+=Math.min(S.streak,5)*20;paint();save();boom();}
+function miss(){S.tot++;S.streak=0;paint();save();}
+function paint(){const p=document.getElementById('pts');p.textContent=S.pts;
+ p.classList.remove('pop');void p.offsetWidth;p.classList.add('pop');
+ document.getElementById('streak').textContent=S.streak;
+ document.getElementById('nok').textContent=S.ok;document.getElementById('ntot').textContent=S.tot;}
+
+/* ---------- speech ---------- */
+function speak(t,r){if(!window.speechSynthesis)return;speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=r;speechSynthesis.speak(u);}
+function readWord(t){speak(t,1.0);}
+function readSlow(t){speak(t,0.9);}
+function stopRead(){if(window.speechSynthesis)speechSynthesis.cancel();}
+
+/* ---------- fireworks ---------- */
+const cv=document.getElementById('fw'),cx=cv.getContext('2d');let ps=[];
+function sz(){cv.width=innerWidth;cv.height=innerHeight;}sz();addEventListener('resize',sz);
+const COLS=['#E2F1FF','#F3E8FF','#FCE7F3','#FFFBEB','#ECFDF5','#FFD6E8','#CDE9FF'];
+function boom(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const x=innerWidth/2,y=innerHeight/3;
+ for(let i=0;i<60;i++){const a=Math.random()*Math.PI*2,s=2+Math.random()*6;
+  ps.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,a:1,c:COLS[i%COLS.length]});}}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);
+ ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=0.08;p.a-=0.012;
+  cx.globalAlpha=Math.max(p.a,0);cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,3.5,0,7);cx.fill();});
+ ps=ps.filter(p=>p.a>0);cx.globalAlpha=1;requestAnimationFrame(loop);}loop();
+
+/* ---------- helpers ---------- */
+function esc(s){return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ---------- generic MC ---------- */
+function mc(host,list,tag){
+ host.innerHTML=list.map((q,i)=>`<div class="q" id="${tag}${i}">
+  <p class="stem">${i+1}. ${q.s} <button class="spk" onclick="readWord('${esc(q.s.replace(/<[^>]+>/g,''))}')">🔊</button></p>
+  ${q.o.map((o,j)=>`<button class="opt" onclick="pick('${tag}',${i},${j})">(${'ABCD'[j]}) ${o}</button>`).join('')}
+  <button class="btn" onclick="toggleSol('${tag}s${i}')">📖 參考解答：</button>
+  <div class="sol" id="${tag}s${i}"><b>正解：(${'ABCD'[q.a]})</b> ${q.o[q.a]}<br>${q.e}</div></div>`).join('');
+ window['DATA_'+tag]=list;}
+function pick(tag,i,j){const q=window['DATA_'+tag][i];const box=document.getElementById(tag+i);
+ if(box.dataset.done)return;box.dataset.done=1;
+ const btns=box.querySelectorAll('.opt');btns.forEach((b,k)=>{if(k===q.a)b.classList.add('right');});
+ if(j===q.a){award(100);toast('✅ 答對！＋分');}else{btns[j].classList.add('wrong');miss();toast('❌ 再想想，看解答回推線索');}
+ document.getElementById(tag+'s'+i).classList.add('show');}
+
+/* ---------- TAB1 vocabulary ---------- */
+const VOCAB={
+ noun:{n:'名詞',items:[
+  {w:'twin',z:'雙胞胎之一',s:'Wendy and Cindy are ____s and look so similar that it’s hard to tell them apart.'},
+  {w:'lifetime',z:'一生',s:'In his 70-year ____, my father raised a family, started a successful business, and helped many people.'},
+  {w:'criminal',z:'罪犯',s:'The police officers are working hard to catch the ____ who broke into several houses last week.'},
+  {w:'womb',z:'子宮',s:'Scientists believe fingerprints form inside the ____.'},
+  {w:'gene',z:'基因',s:'They are shaped by both ____s and what each baby experiences before birth.'},
+  {w:'identification',z:'識別；辨認',s:'Because these patterns last a lifetime, fingerprints are very useful for ____.'},
+  {w:'ridge',z:'（表面上）狹長的隆起線條；脊',s:'When we touch something, the ____s make tiny vibrations.'},
+  {w:'vibration',z:'振動',s:'These ____s help our fingers sense differences.'},
+  {w:'primate',z:'靈長類動物',s:'Some ____s, such as monkeys and apes, have fingerprints, too.'},
+  {w:'texture',z:'質地',s:'Their sensitive fingers help them inspect the ____ of leaves.'}]},
+ adj:{n:'形容詞副詞',items:[
+  {w:'original',z:'原先的；最初的',s:'The new phone lasts 36 hours before it needs a charge. That’s 50% longer than the ____ model.'},
+  {w:'related',z:'同源的；屬於同一類的',s:'English and German are ____; the two languages share many similar words.'},
+  {w:'sensitive',z:'敏感的；靈敏的',s:'Hazel has a ____ nose, so she can smell food cooking from very far away.'},
+  {w:'identical',z:'相同的',s:'Even so, their fingerprint patterns are almost ____ to ours!'},
+  {w:'picky',z:'挑剔的；挑食的',s:'Koalas are famously ____ eaters.'},
+  {w:'unique',z:'獨一無二的',s:'These patterns may look simple, but they are ____ to you.'},
+  {w:'closely',z:'密切地；接近地',s:'This may not seem very surprising because primates are ____ related to humans.'},
+  {w:'famously',z:'出了名地',s:'Koalas are ____ picky eaters.'}]},
+ verb:{n:'動詞',items:[
+  {w:'heal',z:'癒合',s:'The doctor told me to keep my knee wound clean and dry to help it ____.'},
+  {w:'confirm',z:'證實',s:'The video from the security camera ____s that the thief was at the store at 5 p.m.'},
+  {w:'assist',z:'幫助；協助',s:'If you need help with setting up your computer, Jason is the perfect guy to ____ you.'},
+  {w:'grasp',z:'抓住；抓緊',s:'The mother ____ed her young son’s hand to stop him from running around in the store.'},
+  {w:'prefer',z:'偏愛；偏好',s:'Tom ____s the blue shirt, while Ben likes the green one more.'},
+  {w:'inspect',z:'檢查；審視',s:'Health officers ____ restaurant kitchens to make sure the food is safe.'},
+  {w:'grip',z:'緊抓；緊握',s:'The ridges may assist them in grasping things and ____ping tree branches as they climb.'},
+  {w:'developed',z:'長出；（使）生長（過去式）',s:'Koalas ____ fingerprints for practical reasons.'},
+  {w:'share',z:'共同具備',s:'That’s why no two people—not even identical twins—____ the same fingerprints.'}]},
+ coll:{n:'慣用搭配詞',items:[
+  {w:'take a look at',z:'〔動詞片語 v. phr.〕檢視／瞧一瞧…，at 後接名詞，可插入 close 等形容詞（take a close look at）',s:'Yvonne asked Sebastian to ____ her homework to see if she had made any mistakes.'},
+  {w:'as well',z:'〔副詞片語 adv. phr.〕也，通常置於句尾，前面不加逗號，不可置句首',s:'The hotel has a swimming pool. It has a gym ____.'},
+  {w:'even so',z:'〔轉折副詞片語 adv. phr.〕即使如此，置句首加逗號，承認前提但仍導出相反結果',s:'That singer’s music is terrible! ____, I can’t stop listening to it.'},
+  {w:'what’s more',z:'〔轉折副詞片語 adv. phr.〕再者；而且，置句首加逗號，後接完整句子以加碼資訊',s:'The park has a beautiful lake. ____, there are many fun playgrounds for children.'},
+  {w:'as a result',z:'〔轉折副詞片語 adv. phr.〕因此，置句首加逗號，表前因後果，後接完整句子',s:'Emma didn’t wear a jacket today. ____, she felt cold standing outside.'},
+  {w:'related to',z:'〔形容詞＋介系詞 adj. + prep.〕與…同源的／同類的，to 後接名詞或代名詞',s:'This may not seem very surprising because primates are closely ____ humans.'},
+  {w:'identical to',z:'〔形容詞＋介系詞 adj. + prep.〕和…相同的，to 後接名詞或所有格代名詞（ours）',s:'Their fingerprint patterns are almost ____ ours!'},
+  {w:'assist sb in',z:'〔及物動詞＋介系詞 vt. + prep.〕協助某人（做）…，in 後必須接動名詞，不可接原形',s:'The ridges may ____ grasping things.'},
+  {w:'unique to',z:'〔形容詞＋介系詞 adj. + prep.〕為…所獨有的，to 後接名詞或代名詞',s:'These patterns may look simple, but they are ____ you.'},
+  {w:'hold onto',z:'〔及物動詞片語 vt. phr.〕抓住不放，onto 後接名詞，不可分離',s:'Their fingerprints help them ____ branches and other surfaces as they move around.'},
+  {w:'play a role in',z:'〔動詞片語 v. phr.〕在…中扮演角色；起作用，in 後接名詞或名詞子句',s:'Their fingerprints ____ how they choose food.'},
+  {w:'sense of touch',z:'〔名詞片語 n. phr.〕觸覺，of 後接感官名詞，前面常加所有格（our）',s:'They also improve our ____.'},
+  {w:'such as',z:'〔介系詞片語 prep. phr.〕例如，後接名詞（片語）舉例，不可接完整子句',s:'Some primates, ____ monkeys and apes, have them, too.'},
+  {w:'for practical reasons',z:'〔介系詞片語 prep. phr.〕出於實際需求，作副詞用修飾動詞',s:'Koalas developed fingerprints ____.'},
+  {w:'solve a crime',z:'〔動詞＋名詞搭配 v. + n.〕偵破犯罪案件，crime 為可數名詞',s:'The police have used them for over 100 years to ____ and confirm identities.'},
+  {w:'tell apart',z:'〔及物動詞片語 vt. phr.〕分辨；區別，受詞為代名詞時須置中間（tell them apart）',s:'Wendy and Cindy look so similar that it’s hard to ____.'}]},
+ pat:{n:'重要句型',items:[
+  {w:'without fingerprints',z:'〔句型 V + without + N〕without 為介系詞表否定，後接名詞修飾前方動詞',s:'Yet, in very rare cases, some people are born ____.'},
+  {w:'without knowing',z:'〔句型 V + without + V-ing〕without 後接動名詞修飾前方動詞，本身已含否定不可再加 not',s:'Sophie joined the game ____ all the rules.'},
+  {w:'coffee without any sugar',z:'〔句型 N + without + N〕without 片語後置修飾前方名詞，作形容詞用',s:'I prefer ____ or ice.'},
+  {w:'To many people’s surprise',z:'〔句型 to one’s + 情緒性名詞, S + V〕令某人感到…的是…；名詞前須用所有格，置句首加逗號',s:'____, koalas have fingerprints as well.'},
+  {w:'To everyone’s anger',z:'〔句型 to one’s + 情緒性名詞, S + V〕情緒性名詞另有 disbelief、delight、regret、relief 等',s:'____, the city government announced that some public parks would close.'},
+  {w:'Much to my relief',z:'〔句型 much + to one’s + N〕加強語氣「令某人感到非常…」，等同 to one’s great + N，兩者不可疊用',s:'____, I was able to get a seat on the train for the long trip to Kaohsiung.'},
+  {w:'shaped by both genes and',z:'〔句型 beV + p.p. + by both A and B〕被動語態搭配 both A and B 並列兩個施事者',s:'They are ____ what each baby experiences before birth.'},
+  {w:'help them hold',z:'〔句型 help + O + 原形 V〕help 後接受詞與原形動詞（亦可加 to），與 assist sb in V-ing 不同',s:'Their fingerprints ____ onto branches and other surfaces.'},
+  {w:'not just for catching',z:'〔句型 not just for + V-ing, though〕不只是為了…；though 置句尾表轉折，前加逗號',s:'Fingerprints are ____ criminals, though.'},
+  {w:'may look simple, but',z:'〔句型 may + V, but + S + V〕先讓步再轉折，製造「表象 vs. 事實」的反差',s:'These patterns ____ they are unique to you.'}]}
+};
+let CUR=[],SELW=null;
+function buildCats(){document.getElementById('catbar').innerHTML=Object.keys(VOCAB).map(k=>
+ `<button class="btn ${k===S.cat?'tabsel':''}" onclick="setCat('${k}')">${VOCAB[k].n}</button>`).join('');}
+function setCat(k){S.cat=k;save();buildCats();buildPractice();}
+function buildPractice(){
+ const items=VOCAB[S.cat].items;CUR=shuffle(items);SELW=null;
+ document.getElementById('wbbody').innerHTML=shuffle(items).map(it=>
+  `<button class="chip" data-w="${it.w}" onclick="selW(this)">${it.w} <span class="spk" onclick="event.stopPropagation();readWord('${esc(it.w)}')">🔊</span></button>`).join('');
+ document.getElementById('qlist').innerHTML=CUR.map((it,i)=>
+  `<div class="q"><p><span class="num">${i+1}</span> <span class="zh">💬 提示用中譯：${it.z}</span></p>
+   <p>${it.s.replace('____',`<span class="slot" id="sl${i}" onclick="putW(${i})"></span>`)}
+   <button class="spk" onclick="readWord('${esc(it.s.replace('____',it.w))}')">🔊</button></p>
+   <div class="sol" id="vs${i}"></div></div>`).join('');}
+function selW(b){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
+ b.classList.add('sel');SELW=b;}
+function putW(i){const sl=document.getElementById('sl'+i);
+ if(sl.textContent.trim()){const w=sl.dataset.filled;
+  document.querySelectorAll('.chip').forEach(c=>{if(c.dataset.w===w)c.classList.remove('used');});
+  sl.textContent='';sl.dataset.filled='';sl.className='slot';return;}
+ if(!SELW){toast('請先在 Word Bank 點選一個詞彙');return;}
+ sl.textContent=SELW.dataset.w;sl.dataset.filled=SELW.dataset.w;
+ SELW.classList.add('used');SELW.classList.remove('sel');SELW=null;}
+function checkPractice(){let first=null;
+ CUR.forEach((it,i)=>{const sl=document.getElementById('sl'+i),sol=document.getElementById('vs'+i);
+  const ok=(sl.dataset.filled||'').toLowerCase()===it.w.toLowerCase();
+  sl.classList.remove('right','wrong');sl.classList.add(ok?'right':'wrong');
+  sol.innerHTML=`<b>正解：</b>${it.w}（${it.z}）<button class="spk" onclick="readWord('${esc(it.w)}')">🔊</button><br>
+   <b>完整句：</b>${it.s.replace('____','<b>'+it.w+'</b>')} <button class="spk" onclick="readWord('${esc(it.s.replace('____',it.w))}')">🔊</button>`;
+  sol.classList.add('show');
+  if(ok)award(100);else{miss();if(!first)first=sl;}});
+ if(first)first.scrollIntoView({behavior:'smooth',block:'center'});else toast('🎉 全對！');}
+
+/* ---------- TAB2 cloze ---------- */
+const DD={3:'D',4:'C',9:'A',12:'F',21:'B',24:'E'};
+const DDOPT=[['A','original'],['B','picky'],['C','genes'],['D','womb'],['E','texture'],['F','criminals']];
+const TYPED={1:'Take a close look at',2:'patterns',5:'twins',6:'share',7:'Yet',8:'heals',10:'lifetime',
+ 11:'confirm',13:'related',14:'as well',15:'Unlike',16:'Even so',17:'developed',18:'assist',
+ 19:'grasping',20:"What's more",22:'prefer',23:'sensitive',25:'As a result'};
+const HINT={1:'仔細看看',2:'圖樣',5:'雙胞胎（複數）',6:'共同具備',7:'然而；但是',8:'癒合（三單）',
+ 10:'一生；一輩子',11:'證實；確認',13:'與…同源的（related ___ humans）',14:'也（置句尾）',
+ 15:'與…不同；不像…',16:'即便如此',17:'長出；（使）生長（過去式）',18:'幫助；協助',19:'抓握（動名詞）',
+ 20:'除此之外；再者',22:'偏愛；偏好',23:'敏感的；靈敏的',25:'因此'};
+const CLOZE=`<p>[1] your fingerprints（仔細看看你的指紋）. These [2] may look simple, but they are unique to you. Scientists believe fingerprints form inside the [3]. They are shaped by both [4] and what each baby experiences before birth. That's why no two people—not even identical [5]（即使是同卵雙胞胎也一樣）—[6] the same fingerprints. [7], in very rare cases, some people are born without fingerprints.</p>
+<p>Fingerprints stay the same throughout your life. As you grow, they get bigger, but the patterns do not change. Even after small cuts or burns, the skin [8]（皮膚癒合後）in a way that keeps the [9] design. Because these patterns last a [10]（會維持一輩子）, fingerprints are very useful for identification. The police have used them for over 100 years to solve crimes and [11] identities（警方超過一百年來都使用指紋來破案與確認身分）.</p>
+<p>Fingerprints are not just for catching [12], though. They also improve our sense of touch. When we touch something, the ridges make tiny vibrations. These vibrations help our fingers sense differences. For example, silk and wool feel very different when we touch them.</p>
+<p>Humans are not the only animals with fingerprints. Some primates, such as monkeys and apes, have them, too. This may not seem very surprising because primates are closely [13] to humans（因為靈長類與人類的關係相當接近）. Their fingerprints help them hold onto branches and other surfaces as they move around.</p>
+<p>To many people's surprise, koalas have fingerprints [14]（讓許多人驚訝的是，無尾熊也有指紋）. [15] monkeys and apes, koalas are not primates. [16]（即便如此）, their fingerprint patterns are almost identical to ours! Koalas [17] fingerprints for practical reasons. The ridges may [18] them in [19] things（這些紋路可能幫助牠們抓握物體）and gripping tree branches as they climb. [20]（除此之外）, their fingerprints play a role in how they choose food. Koalas are famously [21] eaters. They [22] certain kinds of eucalyptus leaves（牠們偏愛某些尤加利葉）, especially young and fresh ones. Their [23] fingers（牠們敏感的手指）help them inspect the [24] of leaves. [25], they can choose the leaves they want more easily（因此能更容易挑選自己想吃的葉子）.</p>
+<p>Fingerprints are small, but they have a big story to tell. They show who we are, how we feel things, and how some animals are like us.</p>`;
+function buildCloze(){
+ let h=CLOZE;
+ for(let n=25;n>=1;n--){
+  let rep;
+  if(DD[n]){rep=`<span class="num">${n}</span><select class="dd" id="c${n}"><option value=""></option>`+
+    DDOPT.map(o=>`<option value="${o[0]}">(${o[0]}) ${o[1]}</option>`).join('')+`</select>`;}
+  else{rep=`<span class="num">${n}</span><input class="blank" id="c${n}"><span class="zh">（${HINT[n]}）</span>`;}
+  h=h.split('['+n+']').join(rep);}
+ document.getElementById('clozeText').innerHTML=h;
+ document.querySelectorAll('#clozeText input,#clozeText select').forEach(el=>{
+  if(S.text[el.id])el.value=S.text[el.id];
+  el.addEventListener('change',()=>{S.text[el.id]=el.value;save();});});}
+function norm(s){return (s||'').toLowerCase().replace(/[’]/g,"'").replace(/\s+/g,' ').trim();}
+function checkCloze(){let first=null,got=0;
+ for(let n=1;n<=25;n++){const el=document.getElementById('c'+n);
+  const ans=DD[n]?DD[n]:TYPED[n];const ok=DD[n]?el.value===ans:norm(el.value)===norm(ans);
+  el.classList.remove('right','wrong');el.classList.add(ok?'right':'wrong');
+  if(ok){got+=4;award(50);}else{miss();if(!first)first=el;}}
+ toast(got===100?'🎉 25 格全對，100 分！':'📝 本次得分：'+got+' / 100');
+ if(first)first.scrollIntoView({behavior:'smooth',block:'center'});}
+
+/* ---------- TAB3 ---------- */
+const GENRE=[
+ {s:'Sep. 22（第一天課文）最適合歸入哪一種文體？',o:['議論文','說明文','敘述文','描述文'],a:1,
+  e:'全篇現在式（may look、are、form、stay、heals、improve）陳述長期為真的科學事實，並以 For example 舉例，目的在說明指紋的形成、恆久與功能。<br><b>為何其他錯：</b>議論文須有被辯護的主張；敘述文須有事件時序；描述文重感官畫面，Take a close look at 只是導入說明的祈使句。'},
+ {s:'Sep. 23（第二天課文）主要使用哪一種組織手法？',o:['時間順序','比較對照','問題與解決','步驟說明'],a:1,
+  e:'以 such as、Unlike、Even so、almost identical to ours 串接，先給「預料之中」的靈長類再給「出人意料」的無尾熊，屬典型的 compare and contrast。<br><b>為何其他錯：</b>全段無時間序、無待解問題，也沒有任何操作步驟。'},
+ {s:'Sep. 22 第三段開頭「Fingerprints are not just for catching criminals, though.」在結構上的功能是？',
+  o:['重述第一段的結論','舉例說明身分辨識','轉出新角度，補上第三項功能','提供時間背景'],a:2,
+  e:'not just…though 先承接前兩段的「辦案／辨識」用途，再用 also 加碼帶出觸覺功能，為 Sep. 23 的跨物種延伸預留伏筆。<br><b>為何其他錯：</b>它提出的是全新面向而非重述；例子是後面的 silk and wool；句中沒有任何時間訊息。'}];
+const SEQS={
+ A:{items:['事實一：指紋的獨特性——在子宮內形成，受基因與出生前經歷影響，因此無人相同',
+   '事實二：指紋的恆久性——一生不變，即使受傷癒合仍保留原紋路，因此可用於身分辨識',
+   '事實三：指紋的觸覺功能——紋路產生微小震動，幫助手指分辨材質差異'],ord:[0,1,2]},
+ B:{items:['預料之中：靈長類也有指紋，因為與人類近緣，能幫助抓住樹枝',
+   '出人意料：無尾熊並非靈長類，指紋卻幾乎和人類一模一樣',
+   '功能說明：紋路幫助抓握攀爬，敏感手指還能檢查葉子觸感以挑選食物',
+   '總結：指紋雖小，卻展現我們是誰、如何感受，以及某些動物與人類的相似'],ord:[0,1,2,3]},
+ S22:{items:["That's why no two people—not even identical twins—share the same fingerprints, and because these patterns last a lifetime, fingerprints are very useful for identification.",
+   'Fingerprints show who we are and improve our sense of touch.',
+   'Fingerprints may look simple, but they are unique to you because they are shaped by both genes and what each baby experiences before birth.',
+   'Fingerprints are not just for catching criminals, though; the ridges make tiny vibrations that help our fingers sense differences.'],ord:[2,0,3,1]},
+ S23:{items:["To many people's surprise, koalas have fingerprints as well; the ridges may assist them in grasping things, and their sensitive fingers help them inspect the texture of leaves.",
+   'Fingerprints are small, but they have a big story to tell about how some animals are like us.',
+   'Humans are not the only animals with fingerprints.',
+   'Some primates, such as monkeys and apes, have them, too, and this may not seem very surprising because primates are closely related to humans.'],ord:[2,3,0,1]}};
+SEQS['R22']=SEQS['S22'];SEQS['R23']=SEQS['S23'];
+const PICK={};
+function buildSeq(k){const box=document.getElementById('seq'+k);PICK[k]=[];
+ const idx=shuffle(SEQS[k].items.map((_,i)=>i));
+ box.innerHTML=idx.map(i=>`<div class="seqitem" data-i="${i}" onclick="pickSeq('${k}',this)">${SEQS[k].items[i]}</div>`).join('');}
+function pickSeq(k,el){if(el.classList.contains('picked'))return;
+ el.classList.add('picked');PICK[k].push(+el.dataset.i);
+ el.innerHTML='<b>'+(PICK[k].length)+'.</b> '+el.innerHTML;}
+function resetSeq(k){buildSeq(k);}
+function checkSeq(k){const ord=SEQS[k].ord;
+ if(PICK[k].length<ord.length){toast('請先點選全部句子');return;}
+ const ok=PICK[k].every((v,i)=>v===ord[i]);
+ if(ok){award(150);toast('✅ 順序正確！');}else{miss();toast('❌ 順序還不對，看解答回推訊號詞');}
+ document.getElementById('solSeq'+k).classList.add('show');}
+const FOUR=[
+ {s:'What is the main purpose of the whole article?',o:['To teach readers how to take their own fingerprints.','To show that fingerprints tell us about identity, touch, and some animals.','To argue that koalas are more special than monkeys.','To tell the story of a police officer who solved a crime.'],a:1,
+  e:'<b>層次一 主要資訊。</b>末段的三項並列 who we are／how we feel things／how some animals are like us 正好收束兩天課文，等於全文主旨的濃縮。<br><b>為何其他錯：</b>(A) 沒有任何操作步驟；(C) 文章沒有比較兩者誰更特別；(D) 全文無情節與人物。'},
+ {s:'Why does the writer mention identical twins in the first paragraph?',o:['To show that twins are born without fingerprints.','To prove that genes are the only thing that shapes fingerprints.','To show that even the most similar people still have different fingerprints.','To explain how twins are born.'],a:2,
+  e:'<b>層次三 訊息與細節邏輯。</b>not even identical twins 是「極端例證」：連基因幾乎相同的人都不一樣，獨特性的主張因此最穩固。<br><b>為何其他錯：</b>(A) 天生沒有指紋是 very rare cases，與雙胞胎無關；(B) 課文說 shaped by both genes and what each baby experiences，正好否定「唯一」；(D) 文中沒有說明雙胞胎如何出生。'},
+ {s:'Which sentence could be taken out of the second paragraph WITHOUT changing the main idea?',o:['Fingerprints stay the same throughout your life.','Even after small cuts or burns, the skin heals in a way that keeps the original design.','Because these patterns last a lifetime, fingerprints are very useful for identification.','The police have used them for over 100 years to solve crimes and confirm identities.'],a:3,
+  e:'<b>層次二 次要資訊。</b>「警方用了一百多年」是補充的歷史細節，刪掉不影響「指紋恆久因此可辨識身分」的主張。<br><b>為何其他錯：</b>(A) 是段落主張句；(B) 是支撐恆久性的關鍵證據；(C) 是把恆久性連到辨識用途的因果句。'},
+ {s:'In "These vibrations help our fingers sense differences," what do "These vibrations" refer to?',o:['The tiny vibrations made by the ridges','The differences between silk and wool','The patterns inside the womb','The cuts and burns on the skin'],a:0,
+  e:'<b>層次四 語言結構（anaphor 代名詞回指）。</b>解題程序：往前找最近的複數名詞組 → 確認語意相容。前一句正是 the ridges make tiny vibrations。<br><b>為何其他錯：</b>(B) 是震動幫忙分辨的結果，不是震動本身；(C)(D) 屬前兩段，距離太遠且語意不合。'},
+ {s:'Why does the writer say "This may not seem very surprising" about primates?',o:['Because primates are closely related to humans','Because primates live in trees','Because primates are bigger than koalas','Because primates cannot climb'],a:0,
+  e:'<b>層次三 訊息與細節邏輯。</b>because 直接給出原因：近緣物種擁有相似特徵是合理的，作者先壓低驚訝值，才好在下一段用 To many people’s surprise 拉高。<br><b>為何其他錯：</b>(B) 樹棲只是功能背景不是原因；(C)(D) 文中皆無根據，且課文說指紋幫助牠們攀爬。'},
+ {s:'"Their fingerprint patterns are almost identical to ours." Here "ours" means',o:['the koalas’ fingerprints','our fingerprints','the monkeys’ branches','the leaves’ texture'],a:1,
+  e:'<b>層次四 語言結構（所有格代名詞）。</b>ours ＝ our fingerprint patterns，用來避免重複；同句的 Their 指 koalas’。判斷程序：先還原成「所有格＋前面出現過的名詞」。<br><b>為何其他錯：</b>(A) 那是 theirs；(C)(D) 與句中的比較對象不符。'},
+ {s:'What does the last sentence "They show who we are, how we feel things, and how some animals are like us" do?',o:['It gives one more new example.','It asks readers a question.','It brings the three main points of the two days together.','It explains how koalas eat leaves.'],a:2,
+  e:'<b>層次一 主要資訊。</b>三項並列分別回收 Sep. 22 的身分辨識、觸覺功能，與 Sep. 23 的跨物種相似性，是兩天課文的共同收束。<br><b>為何其他錯：</b>(A) 沒有新例子；(B) 是直述句不是問句；(D) 吃葉子只是第三項的其中一個細節。'}];
+const GSAT=[
+ {s:'【克漏字】Some people are born ____ fingerprints.',o:['without','not','no','none'],a:0,
+  e:'without 為介系詞表否定，後接名詞 fingerprints 修飾前方動詞 are born。<br><b>為何其他錯：</b>(B) not 為副詞不能接名詞；(C) no 須直接修飾名詞且不能放在 born 之後這個位置；(D) none 為代名詞，後面不能再接名詞。'},
+ {s:'【克漏字】The ridges may assist them ____ things and gripping tree branches.',o:['to grasp','grasp','in grasping','grasped'],a:2,
+  e:'assist sb in (V-ing) sth 為固定搭配，in 後必須接動名詞；且後方並列的 gripping 也是動名詞，形式必須一致。<br><b>為何其他錯：</b>(A) 是 help／enable 的用法；(B)(D) 無法接在 them 之後。'},
+ {s:'【克漏字】____ surprise, koalas have fingerprints as well.',o:['To many people’s','For many people','In many people’s','With many people'],a:0,
+  e:'to one’s + 情緒性名詞 為固定句型，名詞前須用所有格，置句首加逗號。<br><b>為何其他錯：</b>(B)(D) 介系詞用錯且缺所有格；(C) 此句型不用 in。'},
+ {s:'【閱讀測驗】What is the main idea of the article?',o:['Only humans and primates have fingerprints.','Fingerprints are unique, lasting, and useful to both humans and some animals.','Fingerprints change a lot as people grow older.','The police should stop using fingerprints.'],a:1,
+  e:'兩天課文分別處理「人類指紋的三項事實」與「動物也有指紋」，末段三項並列把它們合併成一個主旨。<br><b>為何其他錯：</b>(A) 無尾熊不是靈長類卻也有；(C) 課文明說 the patterns do not change；(D) 文中完全沒有這種主張。'},
+ {s:'【閱讀測驗】Which of the following is NOT true?',o:['Fingerprints get bigger as a person grows.','Koalas are primates.','Some people are born without fingerprints.','Koalas prefer young and fresh eucalyptus leaves.'],a:1,
+  e:'課文明寫 Unlike monkeys and apes, koalas are not primates——這正是本段「意外」的來源。<br><b>解題程序：</b>NOT true 題逐一把選項配回原句，特別注意 Unlike 這類對比詞後面的事實最常被偷改。'},
+ {s:'【閱讀測驗】What is the writer’s attitude toward fingerprints?',o:['Interested and appreciative','Worried and afraid','Bored and uninterested','Angry and critical'],a:0,
+  e:'Fun Facts 的單元定位、Take a close look at、To many people’s surprise 與 they have a big story to tell 都指向「饒富興味且欣賞」。<br><b>為何其他錯：</b>(B)(C)(D) 全文找不到任何擔憂、厭倦或批評的用語。'}];
+const RCQ=[
+ {s:'What do the ridges on our fingers do when we touch things?',
+  o:['They keep the skin wet so it can feel things easily.','They make the fingers warmer when we touch things.','They stop the fingers from feeling pain on rough surfaces.','They create tiny movements that help us notice differences.'],a:3,
+  e:'課文寫 the ridges make tiny vibrations，而 These vibrations help our fingers sense differences；選項把 vibrations 改寫成 tiny movements、把 sense differences 改寫成 notice differences，屬同義改寫。<br><b>為何其他錯：</b>(A)(B)(C) 課文皆無提及保濕、保暖或止痛的功能。'},
+ {s:'Which of the following statements is true?',
+  o:['Koalas’ fingerprints are not similar to ours.','Koalas’ fingerprints can help them decide what to eat.','Our fingerprints may change after we get a cut on them.','Everyone’s fingerprints are different except identical twins’.'],a:1,
+  e:'課文寫 their fingerprints play a role in how they choose food，並說明敏感手指能檢查葉子觸感以挑選食物。<br><b>為何其他錯：</b>(A) 課文說 almost identical to ours；(C) 課文說 the skin heals in a way that keeps the original design；(D) 課文說 not even identical twins share the same fingerprints，選項把「連雙胞胎也不同」曲解成「雙胞胎例外」。'}];
+
+/* ---------- TAB4 board ---------- */
+const BOARD=[
+ {t:'形成',q:'Where do scientists believe fingerprints form?',o:['On the hands after birth','Inside the womb','In the hospital','After the first year of life'],a:1,e:'¶1 明寫 Scientists believe fingerprints form inside the womb，並由 genes 與出生前的經歷共同塑造。'},
+ {t:'獨特',q:'Why does the writer mention identical twins?',o:['To show that twins share everything','To show that even the most similar people have different fingerprints','To explain how genes work','To prove that twins are rare'],a:1,e:'not even identical twins 是極端例證，用最相似的一組人來確立「無人相同」的主張。'},
+ {t:'短答',q:'短答：Sep. 22 用哪一個片語把「獨特性」的結論帶出來？（請說出該片語）',ans:"That's why",e:"That's why 為因果訊號，前面是原因（受基因與出生前經歷影響），後面是結果（無人相同）。"},
+ {t:'恆久',q:'What happens to fingerprints as a person grows?',o:['They disappear slowly.','They get bigger, but the patterns do not change.','They change into new patterns.','They become harder to see every year.'],a:1,e:'¶2 用 As you grow, they get bigger, but the patterns do not change 建立「尺寸變、紋路不變」的對比。'},
+ {t:'用途',q:'Why are fingerprints very useful for identification?',o:['Because these patterns last a lifetime','Because they are easy to draw','Because they change every year','Because only the police can see them'],a:0,e:'Because these patterns last a lifetime 是明示的因果句，恆久性正是可用於辨識的前提。'},
+ {t:'短答',q:'短答：說出 Sep. 22 第三段轉出新角度的訊號詞，以及它帶出的新功能。',ans:'訊號詞是 not just…though（並搭配 also）；帶出的新功能是 improve our sense of touch（提升觸覺）。',e:'though 置句尾表轉折，also 表加碼；兩者合用讓「不只…還…」的層次清楚，是說明文換角度的常見組合。'},
+ {t:'觸覺',q:'How do the ridges help us feel differences?',o:['They make the skin thicker.','They make tiny vibrations when we touch something.','They keep our fingers warm.','They send signals to our eyes.'],a:1,e:'因果鏈：ridges → tiny vibrations → help our fingers sense differences，最後用 silk and wool 舉例。'},
+ {t:'動物',q:'Why is it not surprising that some primates have fingerprints?',o:['Because they live in zoos','Because they are closely related to humans','Because they eat the same food as humans','Because they are very big'],a:1,e:'because 直接給原因；作者先壓低驚訝值，才好在下一段用 To many people’s surprise 拉高。'},
+ {t:'意外',q:'Why is it surprising that koalas have fingerprints?',o:['Because koalas are not primates','Because koalas cannot climb','Because koalas have no fingers','Because koalas live underground'],a:0,e:'Unlike monkeys and apes, koalas are not primates 是「意外」的來源；Even so 再承認前提並導出相反結果。'},
+ {t:'短答',q:'短答：無尾熊的指紋有哪兩項功能？（中文作答即可）',ans:'一是抓握物體並在攀爬時緊抓樹枝；二是用敏感的手指檢查葉子的觸感，藉此挑選想吃的尤加利葉。',e:'兩項功能由 What’s more 分隔：前者是 assist them in grasping and gripping，後者是 play a role in how they choose food，最後用 As a result 收出結果。'},
+ {t:'句型',q:'Which sentence uses "without" correctly?',o:['Sophie joined the game without knew all the rules.','Sophie joined the game without to know all the rules.','Sophie joined the game without knowing all the rules.','Sophie joined the game without not knowing all the rules.'],a:2,e:'without 為介系詞，後方動詞必須變成動名詞；without 本身已含否定，不可再加 not。'},
+ {t:'摘要',q:'Which sentence works best as the LAST sentence of a summary of the whole article?',o:['Scientists believe fingerprints form inside the womb.','Koalas are famously picky eaters.','Fingerprints are small, but they have a big story to tell.','The police have used fingerprints for over 100 years.'],a:2,e:'結論句須把全文拉高成通則；其餘三句都是具體事實或細節，屬主題句或支持論點。'}];
+let POS=-1;
+function drawBoard(){document.getElementById('boardGrid').innerHTML=BOARD.map((b,i)=>
+ `<div class="sq ${i===POS?'here':''} ${S.done['b'+i]?'done':''}">${i+1}<br>${b.t}</div>`).join('');}
+function roll(){const d=1+Math.floor(Math.random()*4);
+ POS=(POS+d)%BOARD.length;
+ document.getElementById('diceMsg').textContent=`🎲 擲出 ${d} 點，前進到第 ${POS+1} 格（${BOARD[POS].t}）`;
+ drawBoard();showBQ();}
+function resetBoard(){POS=-1;S.done={};save();drawBoard();
+ document.getElementById('boardQ').innerHTML='';document.getElementById('diceMsg').textContent='';}
+function showBQ(){const b=BOARD[POS],h=document.getElementById('boardQ');
+ if(b.o){h.innerHTML=`<div class="q" id="bq"><p class="stem">第 ${POS+1} 格｜${b.q}
+   <button class="spk" onclick="readWord('${esc(b.q)}')">🔊</button></p>
+   ${b.o.map((o,j)=>`<button class="opt" onclick="bAns(${j})">(${'ABCD'[j]}) ${o}</button>`).join('')}
+   <button class="btn" onclick="toggleSol('bsol')">📖 參考解答：</button>
+   <div class="sol" id="bsol"><b>正解：(${'ABCD'[b.a]})</b> ${b.o[b.a]}<br>${b.e}</div></div>`;}
+ else{h.innerHTML=`<div class="q" id="bq"><p class="stem">第 ${POS+1} 格｜${b.q}</p>
+   <textarea rows="2" id="bshort"></textarea>
+   <button class="btn" onclick="toggleSol('bsol')">📖 參考解答：</button>
+   <div class="sol" id="bsol"><b>參考答案：</b>${b.ans}<br>${b.e}</div></div>`;}}
+function bAns(j){const b=BOARD[POS],box=document.getElementById('bq');
+ if(box.dataset.done)return;box.dataset.done=1;
+ const btns=box.querySelectorAll('.opt');btns.forEach((x,k)=>{if(k===b.a)x.classList.add('right');});
+ if(j===b.a){btns[j].classList.add('right');award(120);S.done['b'+POS]=1;save();toast('✅ 答對，保留這一格！');}
+ else{btns[j].classList.add('wrong');miss();toast('❌ 這一格先留著，下次再攻');}
+ drawBoard();document.getElementById('bsol').classList.add('show');}
+
+/* ---------- TAB6 lists ---------- */
+const VOC22=[['twin','雙胞胎之一','Wendy and Cindy are twins and look so similar that it’s hard to tell them apart.'],
+ ['identical twin','同卵雙胞胎（之一）','That’s why no two people—not even identical twins—share the same fingerprints.'],
+ ['heal','癒合','The doctor told me to keep my knee wound clean and dry to help it heal.'],
+ ['original','原先的；最初的','The new phone lasts 36 hours before it needs a charge. That’s 50% longer than the original model.'],
+ ['lifetime','一生','In his 70-year lifetime, my father raised a family, started a successful business, and helped many people.'],
+ ['confirm','證實','The video from the security camera confirms that the thief was at the store at 5 p.m.'],
+ ['criminal','罪犯','The police officers are working hard to catch the criminal who broke into several houses last week.'],
+ ['solve a crime','偵破犯罪案件','The police have used them for over 100 years to solve crimes and confirm identities.']];
+const PK22=[['womb','子宮','Scientists believe fingerprints form inside the womb.'],
+ ['gene','基因','They are shaped by both genes and what each baby experiences before birth.'],
+ ['identification','識別；辨認','Because these patterns last a lifetime, fingerprints are very useful for identification.'],
+ ['ridge','（表面上）狹長的隆起線條；脊','When we touch something, the ridges make tiny vibrations.'],
+ ['vibration','振動','These vibrations help our fingers sense differences.']];
+const VOC23=[['related','同源的；屬於同一類的','English and German are related; the two languages share many similar words.'],
+ ['related to sb/sth','與…同源的／同類的','This may not seem very surprising because primates are closely related to humans.'],
+ ['assist','幫助；協助','If you need help with setting up your computer, Jason is the perfect guy to assist you.'],
+ ['assist sth/sb in (V-ing) sth','幫助／協助…（做）…','The ridges may assist them in grasping things.'],
+ ['grasp','抓住；抓緊','The mother grasped her young son’s hand to stop him from running around in the store.'],
+ ['prefer','偏愛；偏好','Tom prefers the blue shirt, while Ben likes the green one more.'],
+ ['sensitive','敏感的；靈敏的','Hazel has a sensitive nose, so she can smell food cooking from very far away.'],
+ ['inspect','檢查；審視','Health officers inspect restaurant kitchens to make sure the food is safe.']];
+const PK23=[['primate','靈長類動物','Some primates, such as monkeys and apes, have them, too.'],
+ ['identical','相同的','Even so, their fingerprint patterns are almost identical to ours!'],
+ ['identical to sth/sb','和…相同的','Their fingerprint patterns are almost identical to ours.'],
+ ['grip','緊抓；緊握','The ridges may assist them in grasping things and gripping tree branches as they climb.'],
+ ['texture','質地','Their sensitive fingers help them inspect the texture of leaves.']];
+const POCKET=[['take a look at sth','檢視／瞧一瞧…','Yvonne asked Sebastian to take a look at her homework to see if she had made any mistakes.'],
+ ['as well','也（通常置於句尾）','The hotel has a swimming pool. It has a gym as well.'],
+ ['even so','即使如此','That singer’s music is terrible! Even so, I can’t stop listening to it.'],
+ ['what’s more','再者；而且','The park has a beautiful lake. What’s more, there are many fun playgrounds for children.'],
+ ['as a result','因此','Emma didn’t wear a jacket today. As a result, she felt cold standing outside.']];
+function buildList(id,list){document.getElementById(id).innerHTML=list.map(x=>
+ `<p><b>${x[0]}</b> <button class="spk" onclick="readWord('${esc(x[0])}')">🔊</button> <span class="zh">${x[1]}</span><br>
+  ${x[2]} <button class="spk" onclick="readWord('${esc(x[2])}')">🔊</button></p>`).join('');}
+const LIFE=[
+ {s:'Your classmate says twins must have the same fingerprints. What can you tell him?',
+  o:['He is right; twins share everything.','No—not even identical twins share the same fingerprints.','Twins are born without fingerprints.','Twins’ fingerprints change every year.'],a:1,
+  e:'課文用 not even identical twins 這個極端例證確立獨特性：指紋同時受基因與出生前經歷影響，因此連同卵雙胞胎也不同。<br><b>為何其他錯：</b>(A) 與課文相反；(C) 天生無指紋是 very rare cases，與雙胞胎無關；(D) 課文說 the patterns do not change。'},
+ {s:'You cut your finger while cooking. What will happen to your fingerprint after it heals?',
+  o:['It will turn into a new pattern.','It will disappear completely.','It will keep the original design.','It will become the same as your friend’s.'],a:2,
+  e:'¶2 明寫 Even after small cuts or burns, the skin heals in a way that keeps the original design——這正是指紋能長期用於辨識的原因。<br><b>為何其他錯：</b>(A)(B) 與 keeps the original design 矛盾；(D) 指紋是 unique to you，不會變得和別人相同。'},
+ {s:'At the zoo, you see a koala choosing leaves very slowly. What does the article say about this?',
+  o:['Koalas cannot see the leaves clearly.','Koalas use their sensitive fingers to inspect the texture of leaves.','Koalas eat any leaves they find.','Koalas prefer old and dry leaves.'],a:1,
+  e:'課文說 Koalas are famously picky eaters，並以 Their sensitive fingers help them inspect the texture of leaves 解釋挑食的機制，最後用 As a result 收出「更容易挑到想吃的葉子」。<br><b>為何其他錯：</b>(A) 文中沒有提到視力；(C) 與 picky eaters 矛盾；(D) 課文說 especially young and fresh ones。'}];
+const FOCUS=[
+ {s:'Choose the correct one: The cat moved across the floor ____ any noise.',o:['without making','without make','without to make','without made'],a:0,
+  e:'without 為介系詞，後方動詞必須變成動名詞 making，此片語修飾前方動詞 moved。<br><b>為何其他錯：</b>(B)(D) 介系詞後不可接原形或過去式；(C) 介系詞後不可接不定詞。'},
+ {s:'Choose the correct one: I prefer coffee ____ any sugar or ice.',o:['without having','not with','without','no'],a:2,
+  e:'此處 without + N 後置修飾前方名詞 coffee，作形容詞用，等於 coffee that has no sugar or ice。<br><b>為何其他錯：</b>(A) having 多餘且語意重複；(B) not with 非標準用法；(D) no 不能這樣後置修飾。'},
+ {s:'Which sentence is correct?',o:['To many people surprise, koalas have fingerprints as well.','To many people’s surprise, koalas have fingerprints as well.','For many people’s surprise, koalas have fingerprints as well.','To many people’s surprise koalas have fingerprints as well.'],a:1,
+  e:'to one’s + 情緒性名詞 的固定句型：名詞前須用所有格 people’s，置句首後必須加逗號再接主要子句。<br><b>為何其他錯：</b>(A) 缺所有格；(C) 介系詞須用 to；(D) 缺逗號。'},
+ {s:'Choose the correct one to make the tone stronger: ____ relief, I was able to get a seat on the train.',o:['Much to my','Very to my','To my much','Much my'],a:0,
+  e:'加強語氣有兩種寫法：much + to one’s + N（Much to my relief）或 to one’s + great + N（To my great relief）。<br><b>為何其他錯：</b>(B)(C)(D) 皆不符固定語序，且 very 不能修飾此句型。'},
+ {s:'Which emotional noun can be used in this pattern?',o:['table','disappointment','computer','window'],a:1,
+  e:'此句型中的名詞必須帶情緒性，常見的有 surprise、disbelief、delight、disappointment、regret、sorrow、relief、excitement、satisfaction、embarrassment、anger、horror。<br><b>為何其他錯：</b>(A)(C)(D) 皆為一般具體名詞，不帶情緒。'}];
+
+/* ---------- init ---------- */
+buildCats();buildPractice();buildCloze();
+mc(document.getElementById('genreQs'),GENRE,'g');
+mc(document.getElementById('fourQs'),FOUR,'f');
+mc(document.getElementById('gsatQs'),GSAT,'s');
+mc(document.getElementById('rcqQs'),RCQ,'r');
+mc(document.getElementById('lifeQs'),LIFE,'l');
+mc(document.getElementById('focusQs'),FOCUS,'p');
+['A','B','S22','S23','R22','R23'].forEach(buildSeq);
+buildList('voc22',VOC22);buildList('pk22',PK22);buildList('voc23',VOC23);
+buildList('pk23',PK23);buildList('pocketP',POCKET);
+drawBoard();paint();
+document.querySelectorAll('textarea,input.blank').forEach(t=>{
+ if(!t.id)return;
+ if(S.text[t.id])t.value=S.text[t.id];
+ t.addEventListener('input',()=>{S.text[t.id]=t.value;save();});});
+</script>
+</body>
+</html>
